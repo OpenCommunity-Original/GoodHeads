@@ -1,0 +1,19 @@
+name: GoodHeads
+main: org.opencommunity.goodheads.Main
+version: ${version}
+api-version: 1.19
+author: Envel
+description: None
+commands:
+  hdb:
+    description: "Search for player heads by ID"
+    usage: "/hdb search id:<head_id>"
+    permission: goodheads.use
+  gh:
+    description: "Get a player head using Minecraft URL"
+    usage: "/gh give <Minecraft-URL>"
+    permission: goodheads.use
+permissions:
+  goodheads.use:
+    description: Allows player to use /gh command to get a custom head.
+    default: true

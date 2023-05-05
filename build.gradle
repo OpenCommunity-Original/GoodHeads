@@ -1,0 +1,35 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.1"
+    id 'java'
+}
+
+group 'org.opencommunity'
+version '1.1'
+jar.enabled = false
+
+repositories {
+    maven {
+        url = uri("https://repo.papermc.io/repository/maven-public/")
+    }
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly("io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT")
+    compileOnly group: 'com.mojang', name: 'authlib', version: '3.11.50'
+}
+
+processResources {
+    filter { String line -> line.replace('${version}', project.version.toString()) }
+}
+
+shadowJar {
+    archiveFileName = 'GoodHeads-' + project.version.toString() + '.jar'
+}
+
+artifacts {
+    shadowJar
+}
+
+assemble.dependsOn(shadowJar)
