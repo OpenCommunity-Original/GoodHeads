@@ -107,7 +107,6 @@ public class Main extends JavaPlugin {
 
             String headName = headData[0].replaceAll("\"", "");
             String headTextureUrl = "http://textures.minecraft.net/texture/" + headData[1];
-            getLogger().warning("DEBUG: " + headTextureUrl);
             ItemStack playerHead = createHead(headName, headTextureUrl);
 
             if (sender instanceof Player) {
